@@ -7,7 +7,7 @@ class Robot {
     unsigned short energy;
     unsigned short attack;
     unsigned short protection;
-    string strategy;
+    string strategy = "balance";
 
 public:
     Robot(unsigned short health=100, unsigned short energy=100, unsigned short attack=20, unsigned short protection=50){
