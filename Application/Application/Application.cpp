@@ -55,6 +55,12 @@ public:
         attack += 10;
     }
 
+    void balance() {
+        energy -= 10;
+        protection += 5;
+        attack += 5;
+    }
+
     void stats() {
         cout << "Hp: " << health << endl
             << "Protection: " << protection << endl
@@ -97,18 +103,25 @@ public:
             if (robot1.getstrategy() == "aggressive") {
                 robot1.aggressive();
                 robot1.attacking(robot2);
-                cout << "Attacking!\n";
+                cout << "Attacking!\n\n";
             }
             else if (robot1.getstrategy() == "defensive") {
                 robot1.protect();
-                cout << "Defending!\n";
+                cout << "Defending!\n\n";
+            }
+            else if (robot1.getstrategy() == "balance") {
+                robot1.balance();
+                robot1.attacking(robot2);
+                cout << "Attack + Defence... Balance!\n\n";
             }
             else {
                 robot1.attacking(robot2);
-                cout << "Attacking!\n";
+                cout << "Attacking!\n\n";
             }
 
+            cout << "Robot 1: \n";
             robot1.stats();
+            cout << "\nRobot 2: \n";
             robot2.stats();
 
             if (robot2.gethealth() <= 0) {
@@ -124,26 +137,32 @@ public:
             if (robot2.getstrategy() == "aggressive") {
                 robot2.aggressive();
                 robot2.attacking(robot1);
-                cout << "Attacking!\n";
+                cout << "Attacking!\n\n";
             }
             else if (robot2.getstrategy() == "defensive") {
                 robot2.protect();
-                cout << "Defending!\n";
+                cout << "Defending!\n\n";
+            }
+            else if (robot2.getstrategy() == "balance") {
+                robot2.balance();
+                robot2.attacking(robot2);
+                cout << "Attack + Defence... Balance!\n\n";
             }
             else {
                 robot2.attacking(robot1);
-                cout << "Attacking!\n";
+                cout << "Attacking!\n\n";
             }
-
+            cout << "Robot 1: \n";
             robot1.stats();
+            cout << "\nRobot 2: \n";
             robot2.stats();
         }
 
         if (robot1.gethealth() <= 0) {
-            cout << "Robot 2 wins the battle!\n";
+            cout << "\nRobot 2 wins the battle!\n";
         }
         else {
-            cout << "Robot 1 wins the battle!\n";
+            cout << "\nRobot 1 wins the battle!\n";
         }
     }
 };
