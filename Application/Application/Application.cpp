@@ -18,10 +18,10 @@ public:
         this->protection = protection;
         this->strategy = strategy;
     }
-    unsigned short gethealth() { return health; }
-    unsigned short getenergy() { return energy; }
-    unsigned short getprotection() { return protection; }
-    unsigned short getattack() { return attack; }
+    short gethealth() { return health; }
+    short getenergy() { return energy; }
+    short getprotection() { return protection; }
+    short getattack() { return attack; }
     string getstrategy() { return strategy; }
     void takedamage(unsigned int damage) {
         this->health -= damage;
